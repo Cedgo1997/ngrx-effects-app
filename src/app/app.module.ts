@@ -13,6 +13,8 @@ import { UsersModule } from './users/users.module';
 //NGRX
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from './store/app.reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +25,10 @@ import { appReducers } from './store/app.reducers';
     UsersModule,
     HttpClientModule,
     StoreModule.forRoot(appReducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
