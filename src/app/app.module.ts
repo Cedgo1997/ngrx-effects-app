@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
-//Modules
+//Routes
 import { AppRoutingModule } from './app-routing.module';
+
+//Modules
 import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './users/users.module';
+
+//NGRX
+import { StoreModule } from '@ngrx/store';
+import { appReducers } from './store/app.reducers';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +22,7 @@ import { UsersModule } from './users/users.module';
     SharedModule,
     UsersModule,
     HttpClientModule,
+    StoreModule.forRoot(appReducers),
   ],
   providers: [],
   bootstrap: [AppComponent],
