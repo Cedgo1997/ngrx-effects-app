@@ -27,7 +27,7 @@ const _userReducer = createReducer(
     ...state,
     loading: false,
     loaded: true,
-    user: { ...user },
+    user: { ...user['data'] },
   })),
   on(loadUserError, (state, { payload }) => ({
     ...state,
