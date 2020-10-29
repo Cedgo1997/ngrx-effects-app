@@ -21,7 +21,7 @@ export const userInitialState: UserState = {
 const _userReducer = createReducer(
   userInitialState,
 
-  on(loadUser, (state, { id }) => ({ ...state, loading: true, id })),
+  on(loadUser, (state, { id }) => ({ ...state, loading: true, id: id })),
 
   on(loadUserSuccess, (state, { user }) => ({
     ...state,
