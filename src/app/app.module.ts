@@ -15,6 +15,10 @@ import { StoreModule } from '@ngrx/store';
 import { appReducers } from './store/app.reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+//NGRX EFFECTS
+import { EffectsModule } from '@ngrx/effects';
+import { EffectsArray } from './store/effects/index';
+
 import { environment } from 'src/environments/environment';
 
 @NgModule({
@@ -26,6 +30,7 @@ import { environment } from 'src/environments/environment';
     UsersModule,
     HttpClientModule,
     StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot(EffectsArray),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
